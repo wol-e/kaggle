@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 
 cat-in-the-dat/data/competition_data
+
+__pycache__/
