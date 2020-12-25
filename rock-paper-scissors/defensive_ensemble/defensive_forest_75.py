@@ -6,7 +6,7 @@ from scipy.stats import beta
 from sklearn.model_selection import TimeSeriesSplit
 from sklearn.ensemble import RandomForestClassifier
 
-sample_size = 5
+sample_size = 10
 opponent_observations = []
 my_actions = []
 w_me = 0
@@ -45,7 +45,7 @@ def action_decision_tree_dev(opponent_observations, my_actions,
     model = RandomForestClassifier(
         n_estimators=100,
         criterion="entropy",
-        max_depth = 4,
+        max_depth = 8,
     )
 
     model.fit(X, Y)
@@ -129,7 +129,7 @@ def defensive_forest_agent(observation, configuration):
         
         prob_pwned = was_i_pwned(observation.step, w_me=w_me, w_opp=w_opp, samples=10000, seed=42)
     
-        if observation.step >= 15 and prob_pwned >= 0.65:
+        if observation.step >= 15 and prob_pwned >= 0.75:
             pwned = True
 
         if pwned:
