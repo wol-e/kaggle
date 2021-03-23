@@ -1,3 +1,5 @@
 # kaggle
 
-Code for the kaggle competitions I try a little harder on.
+Code for some kaggle competitions I joined.
+
+My kaggle profile: https://www.kaggle.com/wspinkaggle
