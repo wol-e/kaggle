@@ -6,6 +6,7 @@ import time
 from sklearn import metrics
 
 from config import TRAINING_DATA_PATH
+from custom_metrics import custom_metrics
 
 def run(model_name, fold, save_model=False):
     """
@@ -33,10 +34,23 @@ def run(model_name, fold, save_model=False):
     train_start = time.time()
     model.fit(df_train, y_train)
 
-    #TODO: rmse is a bad metric for this, better use e.g. rmspe or the actual competition metric
-    rmse_test = metrics.mean_squared_error(y_true=y_test, y_pred=model.predict(df_test), squared=False)
-    rmse_train = metrics.mean_squared_error(y_true=y_train, y_pred=model.predict(df_train), squared=False)
-    print(f"RMSE on fold {fold}: Train: {rmse_train}, Test: {rmse_test}, training and scoring time: {round(time.time() - train_start,2)} s")
+    pred_train = model.predict(df_train)
+    pred_test = model.predict(df_test)
+
+    rmse_test = metrics.mean_squared_error(y_true=y_test, y_pred=pred_test, squared=False)
+    rmse_train = metrics.mean_squared_error(y_true=y_train, y_pred=pred_train, squared=False)
+    rmspe_test = custom_metrics.rmspe(y_true=y_test, y_pred=pred_test, weights=None)  # TODO: zero division
+    rmspe_train = custom_metrics.rmspe(y_true=y_train, y_pred=pred_train, weights=None)
+    corr_test = custom_metrics.weighted_correlation_coefficient(y_true=y_test, y_pred=pred_test, weights=None)
+    corr_train = custom_metrics.weighted_correlation_coefficient(y_true=y_train, y_pred=pred_train, weights=None)
+    print(f"""Fold {fold}:
+    
+    RMSE Train: {rmse_train}, Test: {rmse_test}
+    RMSPE Train: {rmspe_train}, Test: {rmspe_test}
+    WEIGHTED CORR Train: {corr_train}, Test: {corr_test}
+    training and scoring time: {round(time.time() - train_start,2)} s
+        
+    """)
 
     if save_model:
         joblib.dump(model, f"saved_models/{model_name}/{model_name}_fold_{fold}.joblib")
