@@ -1,8 +1,6 @@
 # g-research crypto forecasting challenge
 
-
-details tbd
-
+https://www.kaggle.com/c/g-research-crypto-forecasting/overview
 
 # TODO's
 
@@ -10,7 +8,7 @@ A lot!
 
 ## framwork:
 - Creating folds based on time splits
-- Proper evaluation metric
+- Proper evaluation metric -> Done, weighted correlation in custom_metrics
 
 ## Model:
-- start modelling at all
+- start fancy modelling at all
