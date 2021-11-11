@@ -18,8 +18,27 @@ def run(model_name, fold, save_model=False, validate=False):
     """
     df_train = pd.read_csv(TRAINING_DATA_PATH)
 
-    df_test = df_train[df_train.fold == fold].reset_index(drop=True)
-    df_train = df_train[df_train.fold != fold].reset_index(drop=True)
+    cross_validation_types = {  # for every model we define cross validation strategy here. Maybe better create a config per model and load from there
+        "random_forest": "fold",
+        "light_gbm_benchmark": "fold",
+        "light_gbm": "time_window",
+    }
+
+    cross_val_type = cross_validation_types[model_name]
+
+    if cross_val_type == "fold":
+        # test set is idetified by 'test_fold' value, train set is everything else
+        df_test = df_train[df_train.test_fold == fold].reset_index(drop=True)
+        df_train = df_train[df_train.test_fold != fold].reset_index(drop=True)
+
+    elif cross_val_type == "time_window":
+        # test set is identified by 'test_time_window' value, train set is everything >before< that time window
+        df_test = df_train[df_train.test_time_window == fold].reset_index(drop=True)
+        train_until_time = df_test.datetime.min()
+        df_train = df_train[df_train.datetime < train_until_time].reset_index(drop=True)
+
+    else:
+        raise ValueError("cross_val_type needs to be one of 'fold' or 'time_window'")
 
     y_train = df_train.Target.fillna(0).values
     y_test = df_test.Target.fillna(0).values
