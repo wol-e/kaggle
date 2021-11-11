@@ -1,5 +1,5 @@
 # kaggle
 
-Code for some kaggle competitions I joined. Code competitions are mostly missing, since work on those in the kaggle editor.
+Code for kaggle competitions. SOme code competitions are missing, when being worked on only in kaggle web environemnt.
 
-My kaggle profile: https://www.kaggle.com/wspinkaggle
+Check out my kaggle profile: https://www.kaggle.com/wspinkaggle
