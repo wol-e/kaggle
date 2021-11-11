@@ -1,7 +1,12 @@
 ##########
-# Do not edit this model, this is intended to compare offline work with the kaggle test set.
-# Based on https://www.kaggle.com/wspinkaggle/g-research-starter-lgbm-pipeline we build the same model
-# and compare our scoring with the model scoring. Comparing public score of model is 0.017.
+# Do not edit this model, this is intended to compare our offline setup
+# with the kaggle test environemnt: Based on
+# https://www.kaggle.com/wspinkaggle/g-research-starter-lgbm-pipeline#
+# we reimplement the same model in our setup and compare our local scoring
+# with the scoring in the kaggle env.
+# >>> Public score of model on kaggle 0.017
+# >>> Our models best fold has a local validation score of about the same 0.017!
+# >>> Our worst fold is 0.011, so looking good!
 ##########
 
 import pandas as pd
