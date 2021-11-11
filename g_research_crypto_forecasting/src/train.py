@@ -16,6 +16,8 @@ def run(model_name, fold, save_model=False, validate=False):
     :param fold int: fold number to run training for
     :return: None
     """
+    print(f"\ntraining on fold {fold}...\n")
+
     df_train = pd.read_csv(TRAINING_DATA_PATH)
 
     cross_validation_types = {  # for every model we define cross validation strategy here. Maybe better create a config per model and load from there
@@ -33,9 +35,10 @@ def run(model_name, fold, save_model=False, validate=False):
 
     elif cross_val_type == "time_window":
         # test set is identified by 'test_time_window' value, train set is everything >before< that time window
-        df_test = df_train[df_train.test_time_window == fold].reset_index(drop=True)
-        train_until_time = df_test.datetime.min()
-        df_train = df_train[df_train.datetime < train_until_time].reset_index(drop=True)
+        #df_test = df_train[df_train.test_time_window == fold].reset_index(drop=True)
+        #train_until_time = df_test.datetime.min()
+        #df_train = df_train[df_train.datetime < train_until_time].reset_index(drop=True)
+        df_test = pd.read_csv(VALIDATION_DATA_PATH)
 
     else:
         raise ValueError("cross_val_type needs to be one of 'fold' or 'time_window'")
@@ -64,21 +67,18 @@ def run(model_name, fold, save_model=False, validate=False):
 
     rmse_test = metrics.mean_squared_error(y_true=y_test, y_pred=pred_test, squared=False)
     rmse_train = metrics.mean_squared_error(y_true=y_train, y_pred=pred_train, squared=False)
-    rmspe_test = custom_metrics.rmspe(y_true=y_test, y_pred=pred_test, weights=None)  # TODO: zero division
-    rmspe_train = custom_metrics.rmspe(y_true=y_train, y_pred=pred_train, weights=None)
     corr_test = custom_metrics.weighted_correlation_coefficient(y_true=y_test, y_pred=pred_test, weights=weights_test)
     corr_train = custom_metrics.weighted_correlation_coefficient(y_true=y_train, y_pred=pred_train, weights=weights_train)
 
     print(f"""Fold {fold}:
     
     RMSE Train: {rmse_train}, Test: {rmse_test}
-    RMSPE Train: {rmspe_train}, Test: {rmspe_test}
     WEIGHTED CORR Train: {corr_train}, Test: {corr_test}
     training and scoring time: {round(time.time() - train_start,2)} s
         
-    """)
+    """)  # TODO: add some meaningful metric for the absolute diff. rmspe would be good, but has problems with data centered around 0 (zero division errors)
 
-    if validate:
+    if validate:  # TODO: this validation does not make sense for the time window cv as the validation dataset is long after the training set
         df_valid = pd.read_csv(VALIDATION_DATA_PATH)
         y_valid = df_valid.Target.fillna(0).values
         weights_valid = df_valid[["Asset_ID"]].copy()
