@@ -1,0 +1,241 @@
+/home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/bin/python /home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/run_training.py
+
+training on fold 0...
+
+Memory usage of dataframe is 2958.23 MB
+Memory usage after optimization is: 953.64 MB
+Decreased by 67.8%
+Memory usage of dataframe is 262.99 MB
+Memory usage after optimization is: 74.40 MB
+Decreased by 71.7%
+Training model for Binance Coin     (ID=0 )
+[LightGBM] [Warning] lambda_l1 is set=1, reg_alpha=0.0 will be ignored. Current value: lambda_l1=1
+[LightGBM] [Warning] feature_fraction is set=0.4, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=0.4
+[LightGBM] [Warning] lambda_l2 is set=1, reg_lambda=0.0 will be ignored. Current value: lambda_l2=1
+...took 4.8 seconds
+Training model for Bitcoin          (ID=1 )
+...took 5.76 seconds
+Training model for Bitcoin Cash     (ID=2 )
+...took 3.44 seconds
+Training model for Cardano          (ID=3 )
+...took 4.07 seconds
+Training model for Dogecoin         (ID=4 )
+...took 2.12 seconds
+Training model for EOS.IO           (ID=5 )
+...took 4.61 seconds
+Training model for Ethereum         (ID=6 )
+...took 4.77 seconds
+Training model for Ethereum Classic (ID=7 )
+...took 4.9 seconds
+Training model for IOTA             (ID=8 )
+...took 3.5 seconds
+Training model for Litecoin         (ID=9 )
+...took 5.46 seconds
+Training model for Maker            (ID=10)
+...took 1.22 seconds
+Training model for Monero           (ID=11)
+...took 3.65 seconds
+Training model for Stellar          (ID=12)
+...took 4.17 seconds
+Training model for TRON             (ID=13)
+...took 4.22 seconds
+Fold 0:
+
+    RMSE Train: 0.005497589610771135, Test: 0.0063567401797513445
+    WEIGHTED CORR Train: 0.24983689904841389, Test: 0.01298480768435943
+    training and scoring time: 72.57 s
+
+
+
+training on fold 1...
+
+Memory usage of dataframe is 2695.29 MB
+Memory usage after optimization is: 868.88 MB
+Decreased by 67.8%
+Memory usage of dataframe is 262.94 MB
+Memory usage after optimization is: 74.38 MB
+Decreased by 71.7%
+Training model for Binance Coin     (ID=0 )
+[LightGBM] [Warning] lambda_l1 is set=1, reg_alpha=0.0 will be ignored. Current value: lambda_l1=1
+[LightGBM] [Warning] feature_fraction is set=0.4, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=0.4
+[LightGBM] [Warning] lambda_l2 is set=1, reg_lambda=0.0 will be ignored. Current value: lambda_l2=1
+...took 10.14 seconds
+Training model for Bitcoin          (ID=1 )
+...took 3.97 seconds
+Training model for Bitcoin Cash     (ID=2 )
+...took 3.65 seconds
+Training model for Cardano          (ID=3 )
+...took 3.62 seconds
+Training model for Dogecoin         (ID=4 )
+...took 1.99 seconds
+Training model for EOS.IO           (ID=5 )
+...took 4.33 seconds
+Training model for Ethereum         (ID=6 )
+...took 5.18 seconds
+Training model for Ethereum Classic (ID=7 )
+...took 4.23 seconds
+Training model for IOTA             (ID=8 )
+...took 2.89 seconds
+Training model for Litecoin         (ID=9 )
+...took 4.2 seconds
+Training model for Maker            (ID=10)
+...took 1.15 seconds
+Training model for Monero           (ID=11)
+...took 3.6 seconds
+Training model for Stellar          (ID=12)
+...took 3.4 seconds
+Training model for TRON             (ID=13)
+...took 4.17 seconds
+Fold 1:
+
+    RMSE Train: 0.005344432921091084, Test: 0.006929071856219694
+    WEIGHTED CORR Train: 0.2635373175901908, Test: 0.0069647119380614984
+    training and scoring time: 70.74 s
+
+
+
+training on fold 2...
+
+Memory usage of dataframe is 2436.23 MB
+Memory usage after optimization is: 785.36 MB
+Decreased by 67.8%
+Memory usage of dataframe is 259.06 MB
+Memory usage after optimization is: 73.29 MB
+Decreased by 71.7%
+Training model for Binance Coin     (ID=0 )
+[LightGBM] [Warning] lambda_l1 is set=1, reg_alpha=0.0 will be ignored. Current value: lambda_l1=1
+[LightGBM] [Warning] feature_fraction is set=0.4, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=0.4
+[LightGBM] [Warning] lambda_l2 is set=1, reg_lambda=0.0 will be ignored. Current value: lambda_l2=1
+...took 3.91 seconds
+Training model for Bitcoin          (ID=1 )
+...took 3.95 seconds
+Training model for Bitcoin Cash     (ID=2 )
+...took 2.97 seconds
+Training model for Cardano          (ID=3 )
+...took 4.08 seconds
+Training model for Dogecoin         (ID=4 )
+...took 2.06 seconds
+Training model for EOS.IO           (ID=5 )
+...took 3.98 seconds
+Training model for Ethereum         (ID=6 )
+...took 4.72 seconds
+Training model for Ethereum Classic (ID=7 )
+...took 5.34 seconds
+Training model for IOTA             (ID=8 )
+...took 13.9 seconds
+Training model for Litecoin         (ID=9 )
+...took 8.55 seconds
+Training model for Maker            (ID=10)
+...took 0.53 seconds
+Training model for Monero           (ID=11)
+...took 4.19 seconds
+Training model for Stellar          (ID=12)
+...took 11.08 seconds
+Training model for TRON             (ID=13)
+...took 3.55 seconds
+Fold 2:
+
+    RMSE Train: 0.0052238547370985905, Test: 0.006440026318712817
+    WEIGHTED CORR Train: 0.23686301289082876, Test: 0.38147744687663315
+    training and scoring time: 86.47 s
+
+
+
+training on fold 3...
+
+Memory usage of dataframe is 2183.34 MB
+Memory usage after optimization is: 703.84 MB
+Decreased by 67.8%
+Memory usage of dataframe is 252.89 MB
+Memory usage after optimization is: 81.52 MB
+Decreased by 67.8%
+Training model for Binance Coin     (ID=0 )
+[LightGBM] [Warning] lambda_l1 is set=1, reg_alpha=0.0 will be ignored. Current value: lambda_l1=1
+[LightGBM] [Warning] feature_fraction is set=0.4, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=0.4
+[LightGBM] [Warning] lambda_l2 is set=1, reg_lambda=0.0 will be ignored. Current value: lambda_l2=1
+...took 3.29 seconds
+Training model for Bitcoin          (ID=1 )
+...took 3.51 seconds
+Training model for Bitcoin Cash     (ID=2 )
+...took 3.41 seconds
+Training model for Cardano          (ID=3 )
+...took 3.33 seconds
+Training model for Dogecoin         (ID=4 )
+...took 1.14 seconds
+Training model for EOS.IO           (ID=5 )
+...took 3.78 seconds
+Training model for Ethereum         (ID=6 )
+...took 5.57 seconds
+Training model for Ethereum Classic (ID=7 )
+...took 4.32 seconds
+Training model for IOTA             (ID=8 )
+...took 2.06 seconds
+Training model for Litecoin         (ID=9 )
+...took 3.51 seconds
+Training model for Maker            (ID=10)
+...took 0.09 seconds
+Training model for Monero           (ID=11)
+...took 2.65 seconds
+Training model for Stellar          (ID=12)
+...took 2.67 seconds
+Training model for TRON             (ID=13)
+...took 2.98 seconds
+Fold 3:
+
+    RMSE Train: 0.005294220849282492, Test: 0.0046476928783250925
+    WEIGHTED CORR Train: 0.23174328894207036, Test: 0.18552421816190945
+    training and scoring time: 54.95 s
+
+
+
+training on fold 4...
+
+Memory usage of dataframe is 1950.11 MB
+Memory usage after optimization is: 551.68 MB
+Decreased by 71.7%
+Memory usage of dataframe is 233.24 MB
+Memory usage after optimization is: 75.19 MB
+Decreased by 67.8%
+Training model for Binance Coin     (ID=0 )
+[LightGBM] [Warning] lambda_l1 is set=1, reg_alpha=0.0 will be ignored. Current value: lambda_l1=1
+[LightGBM] [Warning] feature_fraction is set=0.4, colsample_bytree=1.0 will be ignored. Current value: feature_fraction=0.4
+[LightGBM] [Warning] lambda_l2 is set=1, reg_lambda=0.0 will be ignored. Current value: lambda_l2=1
+...took 4.04 seconds
+Training model for Bitcoin          (ID=1 )
+...took 3.44 seconds
+Training model for Bitcoin Cash     (ID=2 )
+...took 14.05 seconds
+Training model for Cardano          (ID=3 )
+...took 4.97 seconds
+Training model for Dogecoin         (ID=4 )
+...took 2.92 seconds
+Training model for EOS.IO           (ID=5 )
+...took 7.44 seconds
+Training model for Ethereum         (ID=6 )
+...took 3.21 seconds
+Training model for Ethereum Classic (ID=7 )
+...took 3.81 seconds
+Training model for IOTA             (ID=8 )
+...took 2.69 seconds
+Training model for Litecoin         (ID=9 )
+...took 4.26 seconds
+Training model for Maker            (ID=10)
+...took 0.06 seconds
+Training model for Monero           (ID=11)
+...took 2.72 seconds
+Training model for Stellar          (ID=12)
+...took 2.49 seconds
+Training model for TRON             (ID=13)
+...took 3.24 seconds
+Fold 4:
+
+    RMSE Train: 0.005473645881057387, Test: 0.0034384987519303824
+    WEIGHTED CORR Train: 0.23748314740565807, Test: 0.023014853109798332
+    training and scoring time: 69.95 s
+
+
+
+Process finished with exit code 0
+
+
+#########################

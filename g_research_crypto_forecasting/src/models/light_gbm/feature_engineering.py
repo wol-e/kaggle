@@ -11,13 +11,15 @@ from helpers.memory import reduce_memory_usage
 
 TRAINING_FEATURES = ["timestamp", "Target", "Asset_ID", "Count", "Open", "High", "Low", "Close", "Volume", "VWAP"]
 OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
-                   "Volume", "VWAP", "Upper_Shadow", "Lower_Shadow", "open2close", "high2low",
+                   "Volume", "VWAP", "Upper_Shadow", "Lower_Shadow", "close2open", "high2low",
+                   "mean_price",
                    "high2mean",
                    "low2mean",
-                   "high2median",
-                   "low2median",
+                   #"high2median",
+                   #"low2median",
                    "volume2count",
-                   "Lag_Calc_Target"
+                   "Lag_Calc_Target",
+                   "close2lag_close", # so far unclear if this helps, need to experiment
                    ]
 
 
@@ -33,16 +35,16 @@ class FeaturePipeline():
         pd.options.mode.chained_assignment = None  # default='warn'
 
         # adding row based features inspired by https://www.kaggle.com/code1110/gresearch-simple-lgb-starter
-        df['Upper_Shadow'] = df['High'] - np.maximum(df['Close'], df['Open'])
-        df['Lower_Shadow'] = np.minimum(df['Close'], df['Open']) - df['Low']
-        df['open2close'] = df['Close'] / df['Open']
+        df['Upper_Shadow'] = (df['High'] - np.maximum(df['Close'], df['Open'])) / df["High"]
+        df['Lower_Shadow'] = (np.minimum(df['Close'], df['Open']) - df['Low']) / df["Low"]
+        df['close2open'] = df['Close'] / df['Open']
         df['high2low'] = df['High'] / df['Low']
-        mean_price = df[['Open', 'High', 'Low', 'Close']].mean(axis=1)
-        median_price = df[['Open', 'High', 'Low', 'Close']].median(axis=1)
-        df['high2mean'] = df['High'] / mean_price
-        df['low2mean'] = df['Low'] / mean_price
-        df['high2median'] = df['High'] / median_price
-        df['low2median'] = df['Low'] / median_price
+        df['mean_price'] = df[['Open', 'High', 'Low', 'Close']].mean(axis=1)
+        #median_price = df[['Open', 'High', 'Low', 'Close']].median(axis=1)
+        df['high2mean'] = df['High'] / df['mean_price']
+        df['low2mean'] = df['Low'] / df['mean_price']
+        #df['high2median'] = df['High'] / median_price
+        #df['low2median'] = df['Low'] / median_price
         df['volume2count'] = df['Volume'] / (df['Count'] + 1)
 
         # adding target from 15 min ago (we manually recalculate the target in order
@@ -85,16 +87,27 @@ class FeaturePipeline():
 
             return targets
 
-        def join_lag_targets(df, targets, lag_minutes):
-            targets["timestamp"] += 60 * lag_minutes
-            df = df.join(targets.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
+        def join_lag_targets(df, calc_targets, lag_minutes):
+            calc_targets["timestamp"] += 60 * lag_minutes
+            df = df.join(calc_targets.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
             return df
+
+        def join_lag_close(df, lag_minutes):
+            lag_closes = df[["timestamp", "Asset_ID", "Close"]].copy()
+            lag_closes.columns = ["timestamp", "Asset_ID", "Lag_Close"]
+            lag_closes["timestamp"] += 60 * lag_minutes
+
+            return df.join(lag_closes.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
 
         asset_details = pd.read_csv(ASSET_DETAILS_PATH)
         targets = calculate_target(df, asset_details)
-        df = join_lag_targets(df, targets, 15)
+        lag_minutes = 15
+        df = join_lag_targets(df, targets, lag_minutes)
 
-        df = reduce_memory_usage(df)
+        df = reduce_memory_usage(df) # the following lag operations join existing values, so no overflow expected after memory reduction
+
+        df = join_lag_close(df, lag_minutes)
+        df["close2lag_close"] = df["Close"] / df["Lag_Close"]
 
         return df[OUTPUT_FEATURES]
 
