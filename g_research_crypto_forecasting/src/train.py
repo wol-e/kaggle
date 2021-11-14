@@ -35,10 +35,10 @@ def run(model_name, fold, save_model=False, validate=False):
 
     elif cross_val_type == "time_window":
         # test set is identified by 'test_time_window' value, train set is everything >before< that time window
-        #df_test = df_train[df_train.test_time_window == fold].reset_index(drop=True)
-        #train_until_time = df_test.datetime.min()
-        #df_train = df_train[df_train.datetime < train_until_time].reset_index(drop=True)
-        df_test = pd.read_csv(VALIDATION_DATA_PATH)
+        df_test = df_train[df_train.test_time_window == fold].reset_index(drop=True)
+        train_until_time = df_test.datetime.min()
+        df_train = df_train[df_train.datetime < train_until_time].reset_index(drop=True)
+        # df_test = pd.read_csv(VALIDATION_DATA_PATH)  # ust this instead to run on validation data
 
     else:
         raise ValueError("cross_val_type needs to be one of 'fold' or 'time_window'")
