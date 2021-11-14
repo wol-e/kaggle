@@ -19,7 +19,7 @@ OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
                    #"low2median",
                    "volume2count",
                    "Lag_Calc_Target",
-                   "close2lag_close", # so far unclear if this helps, need to experiment
+                   "close2lag_close", # so far unclear if this is better, need to experiment
                    ]
 
 
@@ -34,6 +34,8 @@ class FeaturePipeline():
         df = df[TRAINING_FEATURES]
         pd.options.mode.chained_assignment = None  # default='warn'
 
+        df = reduce_memory_usage(df)
+
         # adding row based features inspired by https://www.kaggle.com/code1110/gresearch-simple-lgb-starter
         df['Upper_Shadow'] = (df['High'] - np.maximum(df['Close'], df['Open'])) / df["High"]
         df['Lower_Shadow'] = (np.minimum(df['Close'], df['Open']) - df['Low']) / df["Low"]
@@ -46,6 +48,7 @@ class FeaturePipeline():
         #df['high2median'] = df['High'] / median_price
         #df['low2median'] = df['Low'] / median_price
         df['volume2count'] = df['Volume'] / (df['Count'] + 1)
+
 
         # adding target from 15 min ago (we manually recalculate the target in order
         # to be able to do this as well for the hidden test set)
@@ -104,7 +107,7 @@ class FeaturePipeline():
         lag_minutes = 15
         df = join_lag_targets(df, targets, lag_minutes)
 
-        df = reduce_memory_usage(df) # the following lag operations join existing values, so no overflow expected after memory reduction
+        #df = reduce_memory_usage(df) # the following lag operations join existing values, so no overflow expected after memory reduction
 
         df = join_lag_close(df, lag_minutes)
         df["close2lag_close"] = df["Close"] / df["Lag_Close"]

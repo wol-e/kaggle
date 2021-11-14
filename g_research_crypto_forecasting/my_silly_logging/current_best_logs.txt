@@ -34,7 +34,8 @@ Training model for Litecoin         (ID=9 )
 Training model for Maker            (ID=10)
 ...took 1.22 seconds
 Training model for Monero           (ID=11)
-...took 3.65 seconds
+...t
+ook 3.65 seconds
 Training model for Stellar          (ID=12)
 ...took 4.17 seconds
 Training model for TRON             (ID=13)
