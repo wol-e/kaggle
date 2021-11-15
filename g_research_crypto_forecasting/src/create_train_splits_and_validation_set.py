@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn import model_selection
-from config import NUMBER_FOLDS
+from config import NUMBER_FOLDS, ASSET_DETAILS_PATH
 from datetime import timedelta
 
 df = pd.read_csv("../data/raw/train.csv")
@@ -28,4 +28,8 @@ for i in range(NUMBER_FOLDS):
     df.loc[test_filter, "test_time_window"] = i
 
 df.to_csv("../data/processed/train_folds.csv", index=False)
+
+for asset_id in pd.read_csv(ASSET_DETAILS_PATH)["Asset_ID"].values:
+    df[df["Asset_ID"] == asset_id].to_csv(f"../data/processed/train_folds_asset_id_{asset_id}.csv", index=False)
+
 df_valid.to_csv("../data/processed/valid.csv", index=False)
