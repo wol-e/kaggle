@@ -1,14 +1,15 @@
 import numpy as np
 
 
-def reduce_memory_usage(df):
+def reduce_memory_usage(df, print_stats=False):
     """ iterate through all the columns of a dataframe and modify the data type
         to reduce memory usage.
         A function used regularly at kaggle.
         Copied from https://www.kaggle.com/code1110/gresearch-simple-lgb-starter (v4)
     """
     start_mem = df.memory_usage().sum() / 1024 ** 2
-    print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
+    if print_stats:
+        print('Memory usage of dataframe is {:.2f} MB'.format(start_mem))
 
     for col in df.columns:
         col_type = df[col].dtype
@@ -36,7 +37,8 @@ def reduce_memory_usage(df):
     #             df[col] = df[col].astype('category')
 
     end_mem = df.memory_usage().sum() / 1024 ** 2
-    print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
-    print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
+    if print_stats:
+        print('Memory usage after optimization is: {:.2f} MB'.format(end_mem))
+        print('Decreased by {:.1f}%'.format(100 * (start_mem - end_mem) / start_mem))
 
     return df

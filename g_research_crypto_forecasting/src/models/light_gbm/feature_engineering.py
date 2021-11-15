@@ -27,7 +27,7 @@ class FeaturePipeline():
     def __init__(self):
         pass
 
-    def fit(self, df):
+    def fit(self):
         pass
 
     def transform(self, df):
