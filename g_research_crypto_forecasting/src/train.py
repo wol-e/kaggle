@@ -10,7 +10,7 @@ from custom_metrics import custom_metrics
 
 def run(model_name, fold, save_model=False, validate=False):
 
-    train = importlib.import_module(f"models.{model_name}.train_before")
+    train = importlib.import_module(f"models.{model_name}.train")
 
     train.run(fold=fold, save_model=save_model, validate=validate)
 

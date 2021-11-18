@@ -19,7 +19,9 @@ OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
                    #"low2median",
                    "volume2count",
                    "Lag_Calc_Target",
-                   "close2lag_close", # so far unclear if this is better, need to experiment
+                   "close2lag_close_15", # so far unclear if this is better, need to experiment
+                   "close2lag_close_10",
+                   "close2lag_close_5",
                    ]
 
 
@@ -97,20 +99,20 @@ class FeaturePipeline():
 
         def join_lag_close(df, lag_minutes):
             lag_closes = df[["timestamp", "Asset_ID", "Close"]].copy()
-            lag_closes.columns = ["timestamp", "Asset_ID", "Lag_Close"]
+            lag_closes.columns = ["timestamp", "Asset_ID", f"Lag_Close_{lag_minutes}"]
             lag_closes["timestamp"] += 60 * lag_minutes
 
             return df.join(lag_closes.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
 
         asset_details = pd.read_csv(ASSET_DETAILS_PATH)
         targets = calculate_target(df, asset_details)
-        lag_minutes = 15
-        df = join_lag_targets(df, targets, lag_minutes)
+        df = join_lag_targets(df, targets, 15)
 
         #df = reduce_memory_usage(df) # the following lag operations join existing values, so no overflow expected after memory reduction
 
-        df = join_lag_close(df, lag_minutes)
-        df["close2lag_close"] = df["Close"] / df["Lag_Close"]
+        for lag in [15, 10, 5]:
+            df = join_lag_close(df, lag)
+            df[f"close2lag_close_{lag}"] = df["Close"] / df[f"Lag_Close_{lag}"]
 
         return df[OUTPUT_FEATURES]
 

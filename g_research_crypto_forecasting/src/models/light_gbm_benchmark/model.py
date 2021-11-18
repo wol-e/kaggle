@@ -32,7 +32,7 @@ class Model:
 
             df = df.dropna(how="any")
 
-            lgbm_model = LGBMRegressor(n_estimators=10)
+            lgbm_model = LGBMRegressor(n_estimators=100, seed=42)
             lgbm_model.fit(df.drop(["Asset_ID", "y"], axis=1), df["y"])
             return lgbm_model
 
