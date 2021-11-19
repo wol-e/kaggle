@@ -5,66 +5,66 @@ training on fold 0...
 
 Training model for Bitcoin Cash     (ID=2 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 33.02 seconds	RMSE: (Train 0.00634, Test 0.00529) WEIGHTED CORR: (Train 0.36256, Test 0.0095)
+...took 48.3 seconds	RMSE: (Train 0.00634, Test 0.00529) WEIGHTED CORR: (Train 0.36239, Test 0.01062)
 
 Training model for Binance Coin     (ID=0 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 25.92 seconds	RMSE: (Train 0.00564, Test 0.0049) WEIGHTED CORR: (Train 0.05579, Test 0.01044)
+...took 40.59 seconds	RMSE: (Train 0.00564, Test 0.0049) WEIGHTED CORR: (Train 0.05557, Test 0.00814)
 /home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/lib/python3.9/site-packages/numpy/core/_methods.py:48: RuntimeWarning: overflow encountered in reduce
   return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 Training model for Bitcoin          (ID=1 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.23 seconds	RMSE: (Train 0.00202, Test 0.00232) WEIGHTED CORR: (Train 0.04642, Test 0.00097)
+...took 25.6 seconds	RMSE: (Train 0.00202, Test 0.00232) WEIGHTED CORR: (Train 0.04672, Test 0.00096)
 
 Training model for EOS.IO           (ID=5 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 23.14 seconds	RMSE: (Train 0.00478, Test 0.00662) WEIGHTED CORR: (Train 0.06318, Test 0.01715)
+...took 38.08 seconds	RMSE: (Train 0.00478, Test 0.00662) WEIGHTED CORR: (Train 0.06301, Test 0.0166)
 
 Training model for Ethereum Classic (ID=7 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 37.63 seconds	RMSE: (Train 0.00858, Test 0.0081) WEIGHTED CORR: (Train 0.39492, Test 0.01305)
+...took 54.67 seconds	RMSE: (Train 0.00858, Test 0.0081) WEIGHTED CORR: (Train 0.3949, Test 0.01325)
 
 Training model for Ethereum         (ID=6 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 17.66 seconds	RMSE: (Train 0.00249, Test 0.00313) WEIGHTED CORR: (Train 0.05051, Test 0.01385)
+...took 29.33 seconds	RMSE: (Train 0.00249, Test 0.00313) WEIGHTED CORR: (Train 0.05133, Test 0.01457)
 
 Training model for Litecoin         (ID=9 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 23.75 seconds	RMSE: (Train 0.00351, Test 0.00446) WEIGHTED CORR: (Train 0.0596, Test 0.02591)
+...took 43.61 seconds	RMSE: (Train 0.00351, Test 0.00446) WEIGHTED CORR: (Train 0.05957, Test 0.02553)
 
 Training model for Monero           (ID=11)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 30.07 seconds	RMSE: (Train 0.00629, Test 0.0054) WEIGHTED CORR: (Train 0.19531, Test -0.00729)
+...took 45.22 seconds	RMSE: (Train 0.00629, Test 0.0054) WEIGHTED CORR: (Train 0.19525, Test -0.00615)
 
 Training model for TRON             (ID=13)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.11 seconds	RMSE: (Train 0.00497, Test 0.00562) WEIGHTED CORR: (Train 0.05415, Test 0.02883)
+...took 22.41 seconds	RMSE: (Train 0.00497, Test 0.00562) WEIGHTED CORR: (Train 0.05376, Test 0.0289)
 
 Training model for Stellar          (ID=12)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 27.45 seconds	RMSE: (Train 0.00519, Test 0.00597) WEIGHTED CORR: (Train 0.0885, Test 0.01237)
+...took 37.41 seconds	RMSE: (Train 0.00519, Test 0.00597) WEIGHTED CORR: (Train 0.08801, Test 0.01175)
 
 Training model for Cardano          (ID=3 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 13.63 seconds	RMSE: (Train 0.00455, Test 0.00508) WEIGHTED CORR: (Train 0.0409, Test 0.02741)
+...took 38.45 seconds	RMSE: (Train 0.00455, Test 0.00508) WEIGHTED CORR: (Train 0.04171, Test 0.02838)
 
 Training model for IOTA             (ID=8 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 26.47 seconds	RMSE: (Train 0.00673, Test 0.00754) WEIGHTED CORR: (Train 0.24622, Test 0.05525)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:84: RuntimeWarning: invalid value encountered in true_divide
-  beta = np.nan_to_num(num.T / denom, nan=0., posinf=0., neginf=0.)
+...took 45.02 seconds	RMSE: (Train 0.00673, Test 0.00754) WEIGHTED CORR: (Train 0.24633, Test 0.0585)
+/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:89: RuntimeWarning: invalid value encountered in true_divide
+  m = targets['m']
 
 Training model for Maker            (ID=10)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 2.8 seconds	RMSE: (Train 0.00567, Test 0.0068) WEIGHTED CORR: (Train 0.04468, Test 0.02336)
+...took 9.51 seconds	RMSE: (Train 0.00567, Test 0.0068) WEIGHTED CORR: (Train 0.04755, Test 0.0224)
 
 Training model for Dogecoin         (ID=4 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 12.62 seconds	RMSE: (Train 0.0072, Test 0.01202) WEIGHTED CORR: (Train 0.10278, Test 0.00796)
+...took 37.83 seconds	RMSE: (Train 0.0072, Test 0.01202) WEIGHTED CORR: (Train 0.09933, Test 0.0018)
 Fold 0 Total:
 
-    WEIGHTED CORR Train: 0.22932542348651466, Test: 0.008357251749187165
+    WEIGHTED CORR Train: 0.22918728905976957, Test: 0.008335484278467408
 
 
 
@@ -73,66 +73,66 @@ training on fold 1...
 
 Training model for Bitcoin Cash     (ID=2 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 50.89 seconds	RMSE: (Train 0.00646, Test 0.00472) WEIGHTED CORR: (Train 0.36961, Test 0.0234)
+...took 82.8 seconds	RMSE: (Train 0.00646, Test 0.00472) WEIGHTED CORR: (Train 0.36909, Test 0.02223)
 
 Training model for Binance Coin     (ID=0 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 14.96 seconds	RMSE: (Train 0.00558, Test 0.00635) WEIGHTED CORR: (Train 0.04851, Test 0.0066)
+...took 47.75 seconds	RMSE: (Train 0.00558, Test 0.00635) WEIGHTED CORR: (Train 0.04638, Test 0.00806)
 /home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/lib/python3.9/site-packages/numpy/core/_methods.py:48: RuntimeWarning: overflow encountered in reduce
   return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 Training model for Bitcoin          (ID=1 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.09 seconds	RMSE: (Train 0.00186, Test 0.00338) WEIGHTED CORR: (Train 0.05161, Test 0.01673)
+...took 42.11 seconds	RMSE: (Train 0.00186, Test 0.00338) WEIGHTED CORR: (Train 0.052, Test 0.01611)
 
 Training model for EOS.IO           (ID=5 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 22.35 seconds	RMSE: (Train 0.00477, Test 0.00491) WEIGHTED CORR: (Train 0.06783, Test -0.0162)
+...took 91.57 seconds	RMSE: (Train 0.00477, Test 0.00491) WEIGHTED CORR: (Train 0.06891, Test -0.01611)
 
 Training model for Ethereum Classic (ID=7 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 35.24 seconds	RMSE: (Train 0.00868, Test 0.00733) WEIGHTED CORR: (Train 0.40478, Test 0.01065)
+...took 102.42 seconds	RMSE: (Train 0.00868, Test 0.00733) WEIGHTED CORR: (Train 0.4049, Test 0.01104)
 
 Training model for Ethereum         (ID=6 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 19.01 seconds	RMSE: (Train 0.00238, Test 0.0035) WEIGHTED CORR: (Train 0.05166, Test 0.02923)
+...took 31.02 seconds	RMSE: (Train 0.00238, Test 0.0035) WEIGHTED CORR: (Train 0.05022, Test 0.02847)
 
 Training model for Litecoin         (ID=9 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 19.64 seconds	RMSE: (Train 0.00341, Test 0.00453) WEIGHTED CORR: (Train 0.06041, Test 0.03765)
+...took 100.28 seconds	RMSE: (Train 0.00341, Test 0.00453) WEIGHTED CORR: (Train 0.06029, Test 0.03738)
 
 Training model for Monero           (ID=11)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 26.33 seconds	RMSE: (Train 0.00633, Test 0.00592) WEIGHTED CORR: (Train 0.20405, Test -0.01569)
+...took 121.94 seconds	RMSE: (Train 0.00633, Test 0.00592) WEIGHTED CORR: (Train 0.20417, Test -0.01614)
 
 Training model for TRON             (ID=13)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 13.94 seconds	RMSE: (Train 0.00492, Test 0.0055) WEIGHTED CORR: (Train 0.05765, Test 0.02054)
+...took 46.6 seconds	RMSE: (Train 0.00492, Test 0.0055) WEIGHTED CORR: (Train 0.05932, Test 0.01885)
 
 Training model for Stellar          (ID=12)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 23.86 seconds	RMSE: (Train 0.00486, Test 0.00787) WEIGHTED CORR: (Train 0.0871, Test 0.01096)
+...took 81.7 seconds	RMSE: (Train 0.00486, Test 0.00787) WEIGHTED CORR: (Train 0.08524, Test 0.00816)
 
 Training model for Cardano          (ID=3 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.02 seconds	RMSE: (Train 0.00434, Test 0.00635) WEIGHTED CORR: (Train 0.0353, Test 0.02776)
+...took 70.24 seconds	RMSE: (Train 0.00434, Test 0.00635) WEIGHTED CORR: (Train 0.03648, Test 0.02841)
 
 Training model for IOTA             (ID=8 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 24.11 seconds	RMSE: (Train 0.0066, Test 0.00782) WEIGHTED CORR: (Train 0.26214, Test 0.02682)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:84: RuntimeWarning: invalid value encountered in true_divide
-  beta = np.nan_to_num(num.T / denom, nan=0., posinf=0., neginf=0.)
+...took 35.5 seconds	RMSE: (Train 0.0066, Test 0.00782) WEIGHTED CORR: (Train 0.26211, Test 0.02586)
+/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:89: RuntimeWarning: invalid value encountered in true_divide
+  m = targets['m']
 
 Training model for Maker            (ID=10)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 1.58 seconds	RMSE: (Train 0.00476, Test 0.00719) WEIGHTED CORR: (Train 0.05805, Test 0.01201)
+...took 2.9 seconds	RMSE: (Train 0.00476, Test 0.00719) WEIGHTED CORR: (Train 0.0598, Test 0.01098)
 
 Training model for Dogecoin         (ID=4 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 5.59 seconds	RMSE: (Train 0.00508, Test 0.0143) WEIGHTED CORR: (Train 0.03059, Test 0.01102)
+...took 7.77 seconds	RMSE: (Train 0.00508, Test 0.0143) WEIGHTED CORR: (Train 0.03008, Test 0.01242)
 Fold 1 Total:
 
-    WEIGHTED CORR Train: 0.24708049463757337, Test: 0.006385221479795355
+    WEIGHTED CORR Train: 0.24700378527326752, Test: 0.006129008809228988
 
 
 
@@ -141,205 +141,46 @@ training on fold 2...
 
 Training model for Bitcoin Cash     (ID=2 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 27.32 seconds	RMSE: (Train 0.00668, Test 0.00312) WEIGHTED CORR: (Train 0.37276, Test -0.00789)
+...took 47.21 seconds	RMSE: (Train 0.00668, Test 0.00312) WEIGHTED CORR: (Train 0.37283, Test -0.00746)
 
 Training model for Binance Coin     (ID=0 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 21.44 seconds	RMSE: (Train 0.00574, Test 0.00335) WEIGHTED CORR: (Train 0.05088, Test 0.00629)
+...took 30.02 seconds	RMSE: (Train 0.00574, Test 0.00335) WEIGHTED CORR: (Train 0.04902, Test 0.00278)
 /home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/lib/python3.9/site-packages/numpy/core/_methods.py:48: RuntimeWarning: overflow encountered in reduce
   return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 Training model for Bitcoin          (ID=1 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.17 seconds	RMSE: (Train 0.00187, Test 0.00171) WEIGHTED CORR: (Train 0.05581, Test 0.00782)
+...took 24.86 seconds	RMSE: (Train 0.00187, Test 0.00171) WEIGHTED CORR: (Train 0.0557, Test 0.00786)
 
 Training model for EOS.IO           (ID=5 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 19.09 seconds	RMSE: (Train 0.00493, Test 0.00255) WEIGHTED CORR: (Train 0.06959, Test -0.01166)
+...took 50.78 seconds	RMSE: (Train 0.00493, Test 0.00255) WEIGHTED CORR: (Train 0.07113, Test -0.01138)
 
 Training model for Ethereum Classic (ID=7 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 31.53 seconds	RMSE: (Train 0.00706, Test 0.01934) WEIGHTED CORR: (Train 0.32404, Test 0.45333)
+...took 40.36 seconds	RMSE: (Train 0.00706, Test 0.01934) WEIGHTED CORR: (Train 0.32407, Test 0.45313)
 
 Training model for Ethereum         (ID=6 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.73 seconds	RMSE: (Train 0.00242, Test 0.00195) WEIGHTED CORR: (Train 0.05416, Test 0.00295)
+...took 19.43 seconds	RMSE: (Train 0.00242, Test 0.00195) WEIGHTED CORR: (Train 0.05376, Test 0.0029)
 
 Training model for Litecoin         (ID=9 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 19.91 seconds	RMSE: (Train 0.00344, Test 0.00304) WEIGHTED CORR: (Train 0.06345, Test 0.01211)
+...took 24.06 seconds	RMSE: (Train 0.00344, Test 0.00304) WEIGHTED CORR: (Train 0.06366, Test 0.012)
 
 Training model for Monero           (ID=11)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 23.84 seconds	RMSE: (Train 0.00649, Test 0.00462) WEIGHTED CORR: (Train 0.20942, Test 0.01177)
+...took 30.93 seconds	RMSE: (Train 0.00649, Test 0.00463) WEIGHTED CORR: (Train 0.20923, Test 0.01178)
 
 Training model for TRON             (ID=13)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.88 seconds	RMSE: (Train 0.00507, Test 0.00303) WEIGHTED CORR: (Train 0.06263, Test -0.00188)
+...took 16.42 seconds	RMSE: (Train 0.00507, Test 0.00302) WEIGHTED CORR: (Train 0.05812, Test -0.00128)
 
 Training model for Stellar          (ID=12)
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 20.48 seconds	RMSE: (Train 0.00492, Test 0.00433) WEIGHTED CORR: (Train 0.08258, Test -0.00468)
+...took 25.28 seconds	RMSE: (Train 0.00492, Test 0.00433) WEIGHTED CORR: (Train 0.08176, Test -0.00402)
 
 Training model for Cardano          (ID=3 )
 [LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 17.46 seconds	RMSE: (Train 0.00443, Test 0.00336) WEIGHTED CORR: (Train 0.03589, Test 0.02401)
-
-Training model for IOTA             (ID=8 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 20.88 seconds	RMSE: (Train 0.00669, Test 0.00566) WEIGHTED CORR: (Train 0.26959, Test 0.01756)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:84: RuntimeWarning: invalid value encountered in true_divide
-  beta = np.nan_to_num(num.T / denom, nan=0., posinf=0., neginf=0.)
-
-Training model for Maker            (ID=10)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 1.8 seconds	RMSE: (Train 0.00511, Test 0.00434) WEIGHTED CORR: (Train 0.10445, Test -0.01387)
-
-Training model for Dogecoin         (ID=4 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 3.32 seconds	RMSE: (Train 0.00526, Test 0.00415) WEIGHTED CORR: (Train 0.0254, Test -0.01354)
-Fold 2 Total:
-
-    WEIGHTED CORR Train: 0.21078841830956713, Test: 0.38083226282870186
-
-
-
-training on fold 3...
-
-
-Training model for Bitcoin Cash     (ID=2 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 24.6 seconds	RMSE: (Train 0.00697, Test 0.00236) WEIGHTED CORR: (Train 0.3748, Test 0.0582)
-
-Training model for Binance Coin     (ID=0 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 12.9 seconds	RMSE: (Train 0.00593, Test 0.00336) WEIGHTED CORR: (Train 0.04879, Test 0.0129)
-/home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/lib/python3.9/site-packages/numpy/core/_methods.py:48: RuntimeWarning: overflow encountered in reduce
-  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
-
-Training model for Bitcoin          (ID=1 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 14.86 seconds	RMSE: (Train 0.00192, Test 0.00136) WEIGHTED CORR: (Train 0.05649, Test 0.02302)
-
-Training model for EOS.IO           (ID=5 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 16.16 seconds	RMSE: (Train 0.0051, Test 0.00272) WEIGHTED CORR: (Train 0.07187, Test 0.01015)
-
-Training model for Ethereum Classic (ID=7 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 27.04 seconds	RMSE: (Train 0.00671, Test 0.01031) WEIGHTED CORR: (Train 0.29529, Test 0.32578)
-
-Training model for Ethereum         (ID=6 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 13.11 seconds	RMSE: (Train 0.00245, Test 0.00213) WEIGHTED CORR: (Train 0.05387, Test 0.01601)
-
-Training model for Litecoin         (ID=9 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.86 seconds	RMSE: (Train 0.00354, Test 0.00228) WEIGHTED CORR: (Train 0.06464, Test 0.037)
-
-Training model for Monero           (ID=11)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 21.04 seconds	RMSE: (Train 0.00673, Test 0.00384) WEIGHTED CORR: (Train 0.21338, Test 0.00774)
-
-Training model for TRON             (ID=13)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 13.99 seconds	RMSE: (Train 0.0051, Test 0.00474) WEIGHTED CORR: (Train 0.06154, Test 0.00848)
-
-Training model for Stellar          (ID=12)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 17.9 seconds	RMSE: (Train 0.00501, Test 0.00406) WEIGHTED CORR: (Train 0.08692, Test -0.00623)
-
-Training model for Cardano          (ID=3 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 14.55 seconds	RMSE: (Train 0.00453, Test 0.00349) WEIGHTED CORR: (Train 0.03445, Test 0.01233)
-
-Training model for IOTA             (ID=8 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.46 seconds	RMSE: (Train 0.00682, Test 0.00527) WEIGHTED CORR: (Train 0.27723, Test 0.03606)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:84: RuntimeWarning: invalid value encountered in true_divide
-  beta = np.nan_to_num(num.T / denom, nan=0., posinf=0., neginf=0.)
-
-Training model for Maker            (ID=10)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 0.51 seconds	RMSE: (Train 0.0067, Test 0.00466) WEIGHTED CORR: (Train nan, Test 0.0)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/custom_metrics/custom_metrics.py:22: RuntimeWarning: invalid value encountered in double_scalars
-  return wcov(y_true, y_pred, weights) / (
-
-Training model for Dogecoin         (ID=4 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 3.04 seconds	RMSE: (Train 0.00488, Test 0.00671) WEIGHTED CORR: (Train 0.02368, Test 0.00287)
-Fold 3 Total:
-
-    WEIGHTED CORR Train: 0.20686809580269977, Test: 0.19061707238963102
-
-
-
-training on fold 4...
-
-
-Training model for Bitcoin Cash     (ID=2 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 21.57 seconds	RMSE: (Train 0.00732, Test 0.00203) WEIGHTED CORR: (Train 0.37661, Test 0.00855)
-
-Training model for Binance Coin     (ID=0 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 17.06 seconds	RMSE: (Train 0.00619, Test 0.00252) WEIGHTED CORR: (Train 0.05216, Test 0.03479)
-/home/wolfgang/.cache/pypoetry/virtualenvs/g-research-crypto-forecasting-kbdanavz-py3.9/lib/python3.9/site-packages/numpy/core/_methods.py:48: RuntimeWarning: overflow encountered in reduce
-  return umr_sum(a, axis, dtype, out, keepdims, initial, where)
-
-Training model for Bitcoin          (ID=1 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 10.84 seconds	RMSE: (Train 0.00196, Test 0.00149) WEIGHTED CORR: (Train 0.05615, Test 0.03878)
-
-Training model for EOS.IO           (ID=5 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 12.37 seconds	RMSE: (Train 0.00533, Test 0.00189) WEIGHTED CORR: (Train 0.07129, Test 0.06383)
-
-Training model for Ethereum Classic (ID=7 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 24.38 seconds	RMSE: (Train 0.00693, Test 0.0044) WEIGHTED CORR: (Train 0.30221, Test -0.003)
-
-Training model for Ethereum         (ID=6 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 12.05 seconds	RMSE: (Train 0.00252, Test 0.00165) WEIGHTED CORR: (Train 0.05473, Test 0.05306)
-
-Training model for Litecoin         (ID=9 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.55 seconds	RMSE: (Train 0.00369, Test 0.00174) WEIGHTED CORR: (Train 0.06549, Test 0.05586)
-
-Training model for Monero           (ID=11)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 18.83 seconds	RMSE: (Train 0.00696, Test 0.00447) WEIGHTED CORR: (Train 0.21813, Test 0.01782)
-
-Training model for TRON             (ID=13)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.13 seconds	RMSE: (Train 0.00527, Test 0.00335) WEIGHTED CORR: (Train 0.06333, Test 0.00028)
-
-Training model for Stellar          (ID=12)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.47 seconds	RMSE: (Train 0.00506, Test 0.0046) WEIGHTED CORR: (Train 0.08768, Test 0.01158)
-
-Training model for Cardano          (ID=3 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 6.81 seconds	RMSE: (Train 0.00454, Test 0.00444) WEIGHTED CORR: (Train 0.02839, Test 0.00174)
-
-Training model for IOTA             (ID=8 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 15.29 seconds	RMSE: (Train 0.00697, Test 0.00518) WEIGHTED CORR: (Train 0.28442, Test 0.04508)
-/home/wolfgang/git/kaggle/g_research_crypto_forecasting/src/models/light_gbm/feature_engineering.py:84: RuntimeWarning: invalid value encountered in true_divide
-  beta = np.nan_to_num(num.T / denom, nan=0., posinf=0., neginf=0.)
-
-Training model for Maker            (ID=10)
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 0.36 seconds	RMSE: (Train 0.00475, Test 0.00869) WEIGHTED CORR: (Train -0.0, Test -0.0)
-
-Training model for Dogecoin         (ID=4 )
-[LightGBM] [Warning] lambda_l1 is set=10, reg_alpha=0.0 will be ignored. Current value: lambda_l1=10
-...took 2.31 seconds	RMSE: (Train 0.00509, Test 0.00376) WEIGHTED CORR: (Train 0.02088, Test 0.01618)
-Fold 4 Total:
-
-    WEIGHTED CORR Train: 0.21185024656179982, Test: 0.01139675568549136
-
-
-
-Process finished with exit code 0
+...took 15.03 seconds	RMSE: (Train 0.00443, Test 0.00336) WEIGHTED CORR: (Train 0.03495, Test 0.02465)

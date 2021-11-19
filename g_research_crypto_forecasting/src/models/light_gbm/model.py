@@ -42,7 +42,7 @@ class Model:
             #'feature_fraction': 0.4,
             'lambda_l1': 10,
             #'lambda_l2': 1,
-            'seed': 99,
+            'seed': 99  ,
             'verbose': -1,
         }
 

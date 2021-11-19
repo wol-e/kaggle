@@ -5,13 +5,16 @@ import sys
 
 sys.path.append("...")  # TODO: to find the config and other sources, is there a nicer way?
 
-from config import ASSET_DETAILS_PATH
+from config import ASSET_DETAILS_PATH, MARKET_DATA_PATH
 
 from helpers.memory import reduce_memory_usage
 
 TRAINING_FEATURES = ["timestamp", "Target", "Asset_ID", "Count", "Open", "High", "Low", "Close", "Volume", "VWAP"]
 OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
-                   "Volume", "VWAP", "Upper_Shadow", "Lower_Shadow", "close2open", "high2low",
+                   "Volume", "VWAP", "Upper_Shadow", "Lower_Shadow",
+                   "close2open",
+                   "market_close2open",
+                   "high2low",
                    "mean_price",
                    "high2mean",
                    "low2mean",
@@ -22,6 +25,10 @@ OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
                    "close2lag_close_15", # so far unclear if this is better, need to experiment
                    "close2lag_close_10",
                    "close2lag_close_5",
+                   #"Market_Open",
+                   #"Market_High",
+                   #"Market_Low",
+                   #"Market_Close",
                    ]
 
 
@@ -33,15 +40,17 @@ class FeaturePipeline():
         pass
 
     def transform(self, df):
-        df = df[TRAINING_FEATURES]
-        pd.options.mode.chained_assignment = None  # default='warn'
+        market = pd.read_csv(MARKET_DATA_PATH, index_col="timestamp")
+        df = df[TRAINING_FEATURES].join(market, on="timestamp", how="left")
 
         df = reduce_memory_usage(df)
 
         # adding row based features inspired by https://www.kaggle.com/code1110/gresearch-simple-lgb-starter
+        pd.options.mode.chained_assignment = None  # default='warn'
         df['Upper_Shadow'] = (df['High'] - np.maximum(df['Close'], df['Open'])) / df["High"]
         df['Lower_Shadow'] = (np.minimum(df['Close'], df['Open']) - df['Low']) / df["Low"]
         df['close2open'] = df['Close'] / df['Open']
+        df['market_close2open'] = df['Market_Close'] / df['Market_Open']
         df['high2low'] = df['High'] / df['Low']
         df['mean_price'] = df[['Open', 'High', 'Low', 'Close']].mean(axis=1)
         #median_price = df[['Open', 'High', 'Low', 'Close']].median(axis=1)
