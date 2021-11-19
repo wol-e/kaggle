@@ -10,10 +10,14 @@ from config import ASSET_DETAILS_PATH, MARKET_DATA_PATH
 from helpers.memory import reduce_memory_usage
 
 TRAINING_FEATURES = ["timestamp", "Target", "Asset_ID", "Count", "Open", "High", "Low", "Close", "Volume", "VWAP"]
+
+lags = [30, 15, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+
 OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
                    "Volume", "VWAP", "Upper_Shadow", "Lower_Shadow",
                    "close2open",
-                   "market_close2open",
+                   "market_close2market_open",
+                   "market_ratio",
                    "high2low",
                    "mean_price",
                    "high2mean",
@@ -22,14 +26,11 @@ OUTPUT_FEATURES = ["Asset_ID", "Count", "Open", "High", "Low", "Close",
                    #"low2median",
                    "volume2count",
                    "Lag_Calc_Target",
-                   "close2lag_close_15", # so far unclear if this is better, need to experiment
-                   "close2lag_close_10",
-                   "close2lag_close_5",
                    #"Market_Open",
                    #"Market_High",
                    #"Market_Low",
                    #"Market_Close",
-                   ]
+                   ] + [f"close2lag_close_{lag}" for lag in lags] + [f"lag_market_ratio_{lag}"for lag in lags]
 
 
 class FeaturePipeline():
@@ -50,7 +51,8 @@ class FeaturePipeline():
         df['Upper_Shadow'] = (df['High'] - np.maximum(df['Close'], df['Open'])) / df["High"]
         df['Lower_Shadow'] = (np.minimum(df['Close'], df['Open']) - df['Low']) / df["Low"]
         df['close2open'] = df['Close'] / df['Open']
-        df['market_close2open'] = df['Market_Close'] / df['Market_Open']
+        df['market_close2market_open'] = df['Market_Close'] / df['Market_Open']
+        df['market_ratio'] = df['close2open'] / df['market_close2market_open']
         df['high2low'] = df['High'] / df['Low']
         df['mean_price'] = df[['Open', 'High', 'Low', 'Close']].mean(axis=1)
         #median_price = df[['Open', 'High', 'Low', 'Close']].median(axis=1)
@@ -106,22 +108,24 @@ class FeaturePipeline():
             df = df.join(calc_targets.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
             return df
 
-        def join_lag_close(df, lag_minutes):
-            lag_closes = df[["timestamp", "Asset_ID", "Close"]].copy()
-            lag_closes.columns = ["timestamp", "Asset_ID", f"Lag_Close_{lag_minutes}"]
-            lag_closes["timestamp"] += 60 * lag_minutes
+        def join_lag_feature(df, feature_name, lag_minutes):
+            lags = df[["timestamp", "Asset_ID", feature_name]].copy()
+            lags.columns = ["timestamp", "Asset_ID", f"lag_{feature_name}_{lag_minutes}"]
+            lags["timestamp"] += 60 * lag_minutes
 
-            return df.join(lag_closes.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
+            return df.join(lags.set_index(["timestamp", "Asset_ID"]), on=["timestamp", "Asset_ID"], how="left")
+
 
         asset_details = pd.read_csv(ASSET_DETAILS_PATH)
         targets = calculate_target(df, asset_details)
         df = join_lag_targets(df, targets, 15)
 
-        #df = reduce_memory_usage(df) # the following lag operations join existing values, so no overflow expected after memory reduction
+        # add lag features
+        for lag in lags:
+            df = join_lag_feature(df, "Close", lag)
+            df[f"close2lag_close_{lag}"] = df["Close"] / df[f"lag_Close_{lag}"]
 
-        for lag in [15, 10, 5]:
-            df = join_lag_close(df, lag)
-            df[f"close2lag_close_{lag}"] = df["Close"] / df[f"Lag_Close_{lag}"]
+            df = join_lag_feature(df, "market_ratio", lag)
 
         return df[OUTPUT_FEATURES]
 
