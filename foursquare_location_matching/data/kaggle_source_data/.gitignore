@@ -1,0 +1,5 @@
+# Ignore everything as this is the raw darta from kaggle_source_data (check readme for downlading data locally)
+*
+
+# But not these files...
+!.gitignore
