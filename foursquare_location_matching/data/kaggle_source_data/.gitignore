@@ -1,5 +1,0 @@
-# Ignore everything in here as this holds the raw data from kaggle (run the .sh in this directory to download the data)
-*
-
-# But not these files...
-!.gitignore
