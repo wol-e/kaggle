@@ -1,0 +1,5 @@
+# Ignore source data from kaggle (execute ../download_data.sh in order to download the data from kaggle)
+*
+
+# But not these files...
+!.gitignore
