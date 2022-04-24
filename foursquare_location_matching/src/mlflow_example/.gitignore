@@ -1,0 +1,5 @@
+# Ignore all mlflow trackign in git
+mlruns/*
+
+# ... but do track certain experiments
+!mlruns/0/
